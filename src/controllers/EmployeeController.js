@@ -4,7 +4,6 @@ var sequelize = require('../model/database')
 
 const controllers = {}
 
-
 controllers.test = (req, res) => {
     const data = {
         name : 'Jhon Smith',
@@ -27,7 +26,7 @@ controllers.testdata = async ( req, res )=>{
         return err;
     });
 
-    res.json(response);
+    res.json({sucess: true, data : response});
 }
 
 controllers.list = async ( req, res ) => {
@@ -35,6 +34,17 @@ controllers.list = async ( req, res ) => {
     res.json(data)
 }
 
+Role.create({
+    role: 'Admin'
+})
+
+Employee.create({
+    name: 'Malena Morgan',
+    email: 'malena@gmail.com',
+    address: ' California Cll 108',
+    phone: '123456789',
+    roleId: 15
+})
 
 
 module.exports = controllers;
